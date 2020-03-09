@@ -14,3 +14,12 @@ CPPSFileAnchor class >> annotation [
 	<generated>
 	^self
 ]
+
+{ #category : #adding }
+CPPSFileAnchor >> addFileAnchorWithPath: aPath [
+	^ CPPSMultipleFileAnchor new
+		mooseModel: self mooseModel;
+		addFile: self;
+		addFileAnchorWithPath: aPath;
+		yourself
+]

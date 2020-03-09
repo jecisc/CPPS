@@ -15,6 +15,15 @@ CPPSMethod class >> annotation [
 	^self
 ]
 
+{ #category : #accessing }
+CPPSMethod >> clientTypes [
+	<MSEProperty: #clientTypes type: #FamixTType>
+	<multivalued>
+	<derived>
+	<MSEComment: 'All types that depend on the receiver'>
+	^ (self queryAllIncoming atScope: FamixTType) withoutSelfLoops
+]
+
 { #category : #testing }
 CPPSMethod >> isConstructor [
 	^ self parentType ifNotNil: [ :type | self name = type name ]

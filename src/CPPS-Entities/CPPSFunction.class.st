@@ -1,8 +1,8 @@
 Class {
 	#name : #CPPSFunction,
 	#superclass : #CPPSBehavioralEntity,
-	#traits : 'FamixTFunction',
-	#classTraits : 'FamixTFunction classTrait',
+	#traits : 'FamixTFunction + FamixTHasSignature + FamixTTypedEntity',
+	#classTraits : 'FamixTFunction classTrait + FamixTHasSignature classTrait + FamixTTypedEntity classTrait',
 	#category : #'CPPS-Entities-Entities'
 }
 
@@ -13,4 +13,14 @@ CPPSFunction class >> annotation [
 	<package: #'CPPS-Entities'>
 	<generated>
 	^self
+]
+
+{ #category : #printing }
+CPPSFunction >> mooseNameOn: stream [
+	| parent |
+	parent := self functionOwner.
+	parent
+		ifNotNil: [ parent mooseNameOn: stream.
+			stream nextPut: $. ].
+	self signature ifNotNil: [ stream nextPutAll: self signature ] ifNil: [ self name ifNotNil: [ stream nextPutAll: self name ] ]
 ]
