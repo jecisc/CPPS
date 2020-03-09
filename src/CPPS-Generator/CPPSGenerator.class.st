@@ -128,5 +128,6 @@ CPPSGenerator >> defineHierarchy [
 
 	type --|> containerEntity.
 	type --|> #TType.
-	type --|> #THasModifiers
+	type --|> #THasModifiers.
+	type --|> #TWithMethods
 ]

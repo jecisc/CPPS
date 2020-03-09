@@ -1,8 +1,8 @@
 Class {
 	#name : #CPPSType,
 	#superclass : #CPPSContainerEntity,
-	#traits : 'FamixTHasModifiers + FamixTType',
-	#classTraits : 'FamixTHasModifiers classTrait + FamixTType classTrait',
+	#traits : 'FamixTHasModifiers + FamixTType + FamixTWithMethods',
+	#classTraits : 'FamixTHasModifiers classTrait + FamixTType classTrait + FamixTWithMethods classTrait',
 	#category : #'CPPS-Entities-Entities'
 }
 
