@@ -1,8 +1,8 @@
 Class {
 	#name : #CPPSFunction,
 	#superclass : #CPPSBehavioralEntity,
-	#traits : 'FamixTFunction + FamixTHasSignature + FamixTTypedEntity',
-	#classTraits : 'FamixTFunction classTrait + FamixTHasSignature classTrait + FamixTTypedEntity classTrait',
+	#traits : 'FamixTFunction',
+	#classTraits : 'FamixTFunction classTrait',
 	#category : #'CPPS-Entities-Entities'
 }
 

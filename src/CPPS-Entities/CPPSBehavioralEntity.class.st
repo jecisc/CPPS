@@ -1,6 +1,8 @@
 Class {
 	#name : #CPPSBehavioralEntity,
 	#superclass : #CPPSContainerEntity,
+	#traits : 'FamixTInvocable + FamixTWithAccesses + FamixTWithInvocations',
+	#classTraits : 'FamixTInvocable classTrait + FamixTWithAccesses classTrait + FamixTWithInvocations classTrait',
 	#category : #'CPPS-Entities-Entities'
 }
 

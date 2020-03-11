@@ -1,8 +1,8 @@
 Class {
 	#name : #CPPSPackage,
 	#superclass : #CPPSContainerEntity,
-	#traits : 'FamixTPackage + FamixTWithFunctions',
-	#classTraits : 'FamixTPackage classTrait + FamixTWithFunctions classTrait',
+	#traits : 'FamixTPackage + FamixTPackageable + FamixTWithFunctions',
+	#classTraits : 'FamixTPackage classTrait + FamixTPackageable classTrait + FamixTWithFunctions classTrait',
 	#category : #'CPPS-Entities-Entities'
 }
 

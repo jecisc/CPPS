@@ -44,6 +44,13 @@ CPPSInheritance >> isAttribute [
 ]
 
 { #category : #testing }
+CPPSInheritance >> isClass [
+
+	<generated>
+	^ false
+]
+
+{ #category : #testing }
 CPPSInheritance >> isFunction [
 
 	<generated>

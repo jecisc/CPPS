@@ -42,6 +42,13 @@ CPPSEntity >> isAttribute [
 ]
 
 { #category : #testing }
+CPPSEntity >> isClass [
+
+	<generated>
+	^ false
+]
+
+{ #category : #testing }
 CPPSEntity >> isFunction [
 
 	<generated>

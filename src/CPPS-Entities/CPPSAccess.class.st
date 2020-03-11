@@ -37,6 +37,13 @@ CPPSAccess >> isAttribute [
 ]
 
 { #category : #testing }
+CPPSAccess >> isClass [
+
+	<generated>
+	^ false
+]
+
+{ #category : #testing }
 CPPSAccess >> isFunction [
 
 	<generated>

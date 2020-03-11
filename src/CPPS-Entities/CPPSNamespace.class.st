@@ -1,8 +1,8 @@
 Class {
 	#name : #CPPSNamespace,
 	#superclass : #CPPSContainerEntity,
-	#traits : 'FamixTNamespace + FamixTWithFunctions',
-	#classTraits : 'FamixTNamespace classTrait + FamixTWithFunctions classTrait',
+	#traits : 'FamixTNamespace + FamixTScopingEntity + FamixTWithFunctions + FamixTWithGlobalVariables + FamixTWithTypes',
+	#classTraits : 'FamixTNamespace classTrait + FamixTScopingEntity classTrait + FamixTWithFunctions classTrait + FamixTWithGlobalVariables classTrait + FamixTWithTypes classTrait',
 	#category : #'CPPS-Entities-Entities'
 }
 

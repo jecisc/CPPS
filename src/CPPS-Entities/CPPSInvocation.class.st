@@ -44,6 +44,13 @@ CPPSInvocation >> isAttribute [
 ]
 
 { #category : #testing }
+CPPSInvocation >> isClass [
+
+	<generated>
+	^ false
+]
+
+{ #category : #testing }
 CPPSInvocation >> isFunction [
 
 	<generated>

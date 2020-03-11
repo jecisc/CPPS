@@ -85,6 +85,9 @@ CPPSGenerator >> defineHierarchy [
 	attribute --|> #TWithClassScope.
 
 	behavioralEntity --|> containerEntity.
+	behavioralEntity --|> #TWithInvocations.
+	behavioralEntity --|> #TInvocable.
+	behavioralEntity --|> #TWithAccesses.
 
 	containerEntity --|> namedEntity.
 
@@ -95,11 +98,8 @@ CPPSGenerator >> defineHierarchy [
 	fileAnchor --|> #TFileAnchor.
 	fileAnchor --|> #TFileNavigation.
 
-	self flag: #todo. "Clean after integration of: https://github.com/moosetechnology/Moose/pull/2149"
 	function --|> behavioralEntity.
 	function --|> #TFunction.
-	function --|> #THasSignature.
-	function --|> #TTypedEntity.
 
 	inheritance --|> #TInheritance.
 
@@ -120,10 +120,14 @@ CPPSGenerator >> defineHierarchy [
 	namespace --|> containerEntity.
 	namespace --|> #TNamespace.
 	namespace --|> #TWithFunctions.
+	namespace --|> #TScopingEntity.
+	namespace --|> #TWithTypes.
+	namespace --|> #TWithGlobalVariables.
 
 	package --|> containerEntity.
 	package --|> #TPackage.
 	package --|> #TWithFunctions.
+	package --|> #TPackageable.
 
 	sourceAnchor --|> entity.
 	sourceAnchor --|> #TSourceAnchor.
@@ -132,8 +136,7 @@ CPPSGenerator >> defineHierarchy [
 	sourcedEntity --|> #TSourceEntity.
 
 	type --|> containerEntity.
-	type --|> #TType.
+	type --|> #TClass.
 	type --|> #THasModifiers.
-	type --|> #TWithMethods.
-	type --|> #TPackageable.
+	type --|> #TWithTypes.
 ]
