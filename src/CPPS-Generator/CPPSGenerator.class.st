@@ -108,6 +108,7 @@ CPPSGenerator >> defineHierarchy [
 	method --|> behavioralEntity.
 	method --|> #TMethod.
 	method --|> #THasModifiers.
+	method --|> #TWithTypes.
 
 	multipleFileAnchor --|> sourceAnchor.
 	multipleFileAnchor --|> #TMultipleFileAnchor.
