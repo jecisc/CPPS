@@ -19,7 +19,8 @@ Class {
 		'sourceAnchor',
 		'sourcedEntity',
 		'fileAnchor',
-		'multipleFileAnchor'
+		'multipleFileAnchor',
+		'association'
 	],
 	#category : #'CPPS-Generator'
 }
@@ -52,6 +53,7 @@ CPPSGenerator class >> submetamodels [
 CPPSGenerator >> defineClasses [
 	super defineClasses.
 	
+	association := builder newClassNamed: #Association.
 	entity := builder newClassNamed: #Entity.
 	sourceAnchor := builder newClassNamed: #SourceAnchor.
 	sourcedEntity := builder newClassNamed: #SourcedEntity.
@@ -78,7 +80,11 @@ CPPSGenerator >> defineClasses [
 CPPSGenerator >> defineHierarchy [
 	super defineHierarchy.
 
+	access --|> association.
 	access --|> #TAccess.
+	
+	association --|> sourcedEntity.
+	association --|> #TAssociation.
 
 	attribute --|> namedEntity.
 	attribute --|> #TAttribute.
@@ -101,8 +107,10 @@ CPPSGenerator >> defineHierarchy [
 	function --|> behavioralEntity.
 	function --|> #TFunction.
 
+	inheritance --|> association.
 	inheritance --|> #TInheritance.
 
+	invocation --|> association.
 	invocation --|> #TInvocation.
 
 	method --|> behavioralEntity.
