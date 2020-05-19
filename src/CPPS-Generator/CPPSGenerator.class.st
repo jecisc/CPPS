@@ -101,7 +101,6 @@ CPPSGenerator >> defineHierarchy [
 	globalVariable --|> #TGlobalVariable.
 
 	fileAnchor --|> sourceAnchor.
-	fileAnchor --|> #TFileAnchor.
 	fileAnchor --|> #TFileNavigation.
 
 	function --|> behavioralEntity.

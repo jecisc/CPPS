@@ -1,8 +1,8 @@
 Class {
 	#name : #CPPSFileAnchor,
 	#superclass : #CPPSSourceAnchor,
-	#traits : 'FamixTFileAnchor + FamixTFileNavigation',
-	#classTraits : 'FamixTFileAnchor classTrait + FamixTFileNavigation classTrait',
+	#traits : 'FamixTFileNavigation',
+	#classTraits : 'FamixTFileNavigation classTrait',
 	#category : #'CPPS-Entities-Entities'
 }
 
