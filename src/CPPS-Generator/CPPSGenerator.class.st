@@ -20,7 +20,14 @@ Class {
 		'sourcedEntity',
 		'fileAnchor',
 		'multipleFileAnchor',
-		'association'
+		'association',
+		'block',
+		'condition',
+		'conditional',
+		'for',
+		'if',
+		'switch',
+		'while'
 	],
 	#category : #'CPPS-Generator'
 }
@@ -74,6 +81,15 @@ CPPSGenerator >> defineClasses [
 	namespace := builder newClassNamed: #Namespace.
 	package := builder newClassNamed: #Package.
 	type := builder newClassNamed: #Type.
+	
+
+	block := builder newClassNamed: #Block.
+	condition := builder newClassNamed: #Condition.
+	conditional  := builder newClassNamed: #Conditional.
+	for := builder newClassNamed: #For.
+	if := builder newClassNamed: #If.
+	switch := builder newClassNamed: #Switch.
+	while := builder newClassNamed: #While
 ]
 
 { #category : #definition }
@@ -94,6 +110,7 @@ CPPSGenerator >> defineHierarchy [
 	behavioralEntity --|> #TWithInvocations.
 	behavioralEntity --|> #TInvocable.
 	behavioralEntity --|> #TWithAccesses.
+	behavioralEntity --|> #TWithStatements.
 
 	containerEntity --|> namedEntity.
 
@@ -147,4 +164,24 @@ CPPSGenerator >> defineHierarchy [
 	type --|> #TClass.
 	type --|> #THasModifiers.
 	type --|> #TWithTypes.
+	
+	block --|> behavioralEntity.
+	
+	condition --|> block.
+
+	conditional --|> block.
+
+	for --|> conditional.
+	
+	if --|> conditional.
+	
+	switch --|> conditional.
+	
+	while --|> conditional
+]
+
+{ #category : #definition }
+CPPSGenerator >> defineRelations [
+	((behavioralEntity property: #innerBlocks) comment: 'Blocks declared in this behavioural')
+		*- ((block property: #parentBlock) comment: '"Block" containing this block. belongsTo implementation')
 ]

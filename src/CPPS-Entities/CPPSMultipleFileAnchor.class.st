@@ -17,5 +17,5 @@ CPPSMultipleFileAnchor class >> annotation [
 
 { #category : #adding }
 CPPSMultipleFileAnchor >> addFile: aFileAnchor [
-	self allFiles add: aFileAnchor
+	self fileAnchors add: aFileAnchor
 ]

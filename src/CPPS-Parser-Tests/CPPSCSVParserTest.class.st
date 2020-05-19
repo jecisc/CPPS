@@ -161,6 +161,6 @@ CPPSCSVParserTest >> testMultiFileAnchorCreation [
 	parser savePath: 'foo/bar' forId: 'sourceFile'.
 	self parse: 'methodCode,myMethod(),typeCode,Class,sourceFile,45,1,48,-1' rule: #function.
 	self assert: (parser entitiesMap at: 'Class') sourceAnchor class equals: CPPSMultipleFileAnchor.
-	self assert: (parser entitiesMap at: 'Class') sourceAnchor allFiles first equals: anchor.
-	self assert: (parser entitiesMap at: 'Class') sourceAnchor allFiles second fileName equals: 'bar'
+	self assert: (parser entitiesMap at: 'Class') sourceAnchor fileAnchors first equals: anchor.
+	self assert: (parser entitiesMap at: 'Class') sourceAnchor fileAnchors second fileName equals: 'bar'
 ]
