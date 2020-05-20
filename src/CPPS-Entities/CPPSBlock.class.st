@@ -22,6 +22,13 @@ CPPSBlock >> addParentBlock: anObject [
 	^ self parentBlock add: anObject
 ]
 
+{ #category : #testing }
+CPPSBlock >> isCPPSBlock [
+
+	<generated>
+	^ true
+]
+
 { #category : #accessing }
 CPPSBlock >> parentBlock [
 	"Relation named: #parentBlock type: #CPPSBehavioralEntity opposite: #innerBlocks"

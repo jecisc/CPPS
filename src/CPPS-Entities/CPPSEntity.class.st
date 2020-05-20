@@ -49,6 +49,13 @@ CPPSEntity >> isBehavioural [
 ]
 
 { #category : #testing }
+CPPSEntity >> isCPPSBlock [
+
+	<generated>
+	^ false
+]
+
+{ #category : #testing }
 CPPSEntity >> isClass [
 
 	<generated>

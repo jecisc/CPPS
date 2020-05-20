@@ -166,6 +166,7 @@ CPPSGenerator >> defineHierarchy [
 	type --|> #TWithTypes.
 	
 	block --|> behavioralEntity.
+	block testingSelector: #isCPPSBlock.
 	
 	condition --|> block.
 
