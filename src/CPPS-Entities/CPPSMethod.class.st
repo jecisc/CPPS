@@ -37,6 +37,13 @@ CPPSMethod >> isConstructor: aBoolean [
 ]
 
 { #category : #testing }
+CPPSMethod >> isDead [
+	(self isConstructor or: [ self isDestructor ]) ifTrue: [ ^ false ].
+
+	^ super isDead
+]
+
+{ #category : #testing }
 CPPSMethod >> isDestructor [
 	^ self parentType ifNotNil: [ :type | self name = ('~' , type name) ]
 ]
