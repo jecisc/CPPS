@@ -1,6 +1,6 @@
 Class {
 	#name : #CPPSMethod,
-	#superclass : #CPPSBehavioralEntity,
+	#superclass : #CPPSBehaviouralEntity,
 	#traits : 'FamixTHasModifiers + FamixTMethod + FamixTWithTypes',
 	#classTraits : 'FamixTHasModifiers classTrait + FamixTMethod classTrait + FamixTWithTypes classTrait',
 	#category : #'CPPS-Entities-Entities'
@@ -9,7 +9,7 @@ Class {
 { #category : #meta }
 CPPSMethod class >> annotation [
 
-	<FMClass: #Method super: #CPPSBehavioralEntity>
+	<FMClass: #Method super: #CPPSBehaviouralEntity>
 	<package: #'CPPS-Entities'>
 	<generated>
 	^self

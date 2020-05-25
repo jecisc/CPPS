@@ -1,8 +1,8 @@
 Class {
 	#name : #CPPSBlock,
-	#superclass : #CPPSBehavioralEntity,
+	#superclass : #CPPSBehaviouralEntity,
 	#instVars : [
-		'#parentBlock => FMMany type: #CPPSBehavioralEntity opposite: #innerBlocks'
+		'#parentBlock => FMMany type: #CPPSBehaviouralEntity opposite: #innerBlocks'
 	],
 	#category : #'CPPS-Entities-Entities'
 }
@@ -10,7 +10,7 @@ Class {
 { #category : #meta }
 CPPSBlock class >> annotation [
 
-	<FMClass: #Block super: #CPPSBehavioralEntity>
+	<FMClass: #Block super: #CPPSBehaviouralEntity>
 	<package: #'CPPS-Entities'>
 	<generated>
 	^self
@@ -31,7 +31,7 @@ CPPSBlock >> isCPPSBlock [
 
 { #category : #accessing }
 CPPSBlock >> parentBlock [
-	"Relation named: #parentBlock type: #CPPSBehavioralEntity opposite: #innerBlocks"
+	"Relation named: #parentBlock type: #CPPSBehaviouralEntity opposite: #innerBlocks"
 
 	<generated>
 	<FMComment: '"Block" containing this block. belongsTo implementation'>

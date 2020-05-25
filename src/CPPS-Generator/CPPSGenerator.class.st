@@ -71,7 +71,7 @@ CPPSGenerator >> defineClasses [
 
 	access := builder newClassNamed: #Access.
 	attribute := builder newClassNamed: #Attribute.
-	behavioralEntity := builder newClassNamed: #BehavioralEntity.
+	behavioralEntity := builder newClassNamed: #BehaviouralEntity.
 	containerEntity := builder newClassNamed: #ContainerEntity.
 	function := builder newClassNamed: #Function.
 	globalVariable := builder newClassNamed: #GlobalVariable.

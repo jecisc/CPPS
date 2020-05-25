@@ -1,5 +1,5 @@
 Class {
-	#name : #CPPSBehavioralEntity,
+	#name : #CPPSBehaviouralEntity,
 	#superclass : #CPPSContainerEntity,
 	#traits : 'FamixTInvocable + FamixTWithAccesses + FamixTWithInvocations + FamixTWithStatements',
 	#classTraits : 'FamixTInvocable classTrait + FamixTWithAccesses classTrait + FamixTWithInvocations classTrait + FamixTWithStatements classTrait',
@@ -10,16 +10,16 @@ Class {
 }
 
 { #category : #meta }
-CPPSBehavioralEntity class >> annotation [
+CPPSBehaviouralEntity class >> annotation [
 
-	<FMClass: #BehavioralEntity super: #CPPSContainerEntity>
+	<FMClass: #BehaviouralEntity super: #CPPSContainerEntity>
 	<package: #'CPPS-Entities'>
 	<generated>
 	^self
 ]
 
 { #category : #accessing }
-CPPSBehavioralEntity >> innerBlocks [
+CPPSBehaviouralEntity >> innerBlocks [
 	"Relation named: #innerBlocks type: #CPPSBlock opposite: #parentBlock"
 
 	<generated>
@@ -28,7 +28,7 @@ CPPSBehavioralEntity >> innerBlocks [
 ]
 
 { #category : #accessing }
-CPPSBehavioralEntity >> innerBlocks: anObject [
+CPPSBehaviouralEntity >> innerBlocks: anObject [
 
 	<generated>
 	innerBlocks := anObject

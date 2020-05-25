@@ -1,6 +1,6 @@
 Class {
 	#name : #CPPSFunction,
-	#superclass : #CPPSBehavioralEntity,
+	#superclass : #CPPSBehaviouralEntity,
 	#traits : 'FamixTFunction',
 	#classTraits : 'FamixTFunction classTrait',
 	#category : #'CPPS-Entities-Entities'
@@ -9,7 +9,7 @@ Class {
 { #category : #meta }
 CPPSFunction class >> annotation [
 
-	<FMClass: #Function super: #CPPSBehavioralEntity>
+	<FMClass: #Function super: #CPPSBehaviouralEntity>
 	<package: #'CPPS-Entities'>
 	<generated>
 	^self
