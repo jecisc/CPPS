@@ -12,3 +12,10 @@ CPPSSwitch class >> annotation [
 	<generated>
 	^self
 ]
+
+{ #category : #display }
+CPPSSwitch class >> nameTranslations [
+	^ Dictionary
+		with: #english -> 'Switch'
+		with: #french -> 'Switch'
+]

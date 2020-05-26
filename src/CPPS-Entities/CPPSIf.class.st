@@ -12,3 +12,10 @@ CPPSIf class >> annotation [
 	<generated>
 	^self
 ]
+
+{ #category : #display }
+CPPSIf class >> nameTranslations [
+	^ Dictionary
+		with: #english -> 'If'
+		with: #french -> 'If'
+]

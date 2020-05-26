@@ -12,3 +12,10 @@ CPPSCondition class >> annotation [
 	<generated>
 	^self
 ]
+
+{ #category : #display }
+CPPSCondition class >> nameTranslations [
+	^ Dictionary
+		with: #english -> 'Block''s condition'
+		with: #french -> 'Condition du bloc'
+]

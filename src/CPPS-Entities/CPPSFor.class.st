@@ -12,3 +12,10 @@ CPPSFor class >> annotation [
 	<generated>
 	^self
 ]
+
+{ #category : #display }
+CPPSFor class >> nameTranslations [
+	^ Dictionary
+		with: #english -> 'For'
+		with: #french -> 'For'
+]

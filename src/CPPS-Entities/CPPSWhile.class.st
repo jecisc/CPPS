@@ -12,3 +12,10 @@ CPPSWhile class >> annotation [
 	<generated>
 	^self
 ]
+
+{ #category : #display }
+CPPSWhile class >> nameTranslations [
+	^ Dictionary
+		with: #english -> 'While'
+		with: #french -> 'While'
+]

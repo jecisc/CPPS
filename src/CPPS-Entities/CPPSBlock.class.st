@@ -16,6 +16,23 @@ CPPSBlock class >> annotation [
 	^self
 ]
 
+{ #category : #display }
+CPPSBlock class >> color [
+	^ MDLColor tint: #purple code: #'300'
+]
+
+{ #category : #display }
+CPPSBlock class >> initialToDisplay [
+	^ 'B'
+]
+
+{ #category : #display }
+CPPSBlock class >> nameTranslations [
+	^ Dictionary
+		with: #english -> 'Block'
+		with: #french -> 'Bloc'
+]
+
 { #category : #adding }
 CPPSBlock >> addParentBlock: anObject [
 	<generated>
