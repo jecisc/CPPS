@@ -17,11 +17,12 @@ BaselineOfCPPS >> baseline: spec [
 				famix: spec;
 				famixReplication: spec;
 				petitParser: spec;
-				petitParser2: spec.
+				petitParser2: spec;
+				rules: spec.
 
 			"Packages"
 			spec
-				package: 'CPPS-Entities' with: [ spec requires: #('FamixReplication') ];
+				package: 'CPPS-Entities' with: [ spec requires: #('FamixReplication' 'Rules') ];
 				package: 'CPPS-Entities-Tests' with: [ spec requires: #('CPPS-Entities') ];
 				package: 'CPPS-Generator' with: [ spec requires: #('Famix') ];
 				
@@ -71,4 +72,9 @@ BaselineOfCPPS >> petitParser: spec [
 { #category : #accessing }
 BaselineOfCPPS >> projectClass [
 	^ MetacelloCypressBaselineProject
+]
+
+{ #category : #dependencies }
+BaselineOfCPPS >> rules: spec [
+	spec baseline: 'Rules' with: [ spec repository: 'github://jecisc/Rules:v1.x.x/src' ]
 ]

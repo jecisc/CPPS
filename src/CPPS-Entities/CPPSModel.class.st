@@ -1,6 +1,9 @@
 Class {
 	#name : #CPPSModel,
 	#superclass : #MooseModel,
+	#instVars : [
+		'rulesManager'
+	],
 	#category : #'CPPS-Entities-Model'
 }
 
@@ -56,6 +59,64 @@ CPPSModel >> entitiesForReplicationDetection [
 	^ self allModelMethods asOrderedCollection, self allModelFunctions
 ]
 
+{ #category : #initialization }
+CPPSModel >> initialize [
+	super initialize.
+	self rulesManager: RuRulesManager new.
+	self initializeDefaultRules
+]
+
+{ #category : #initialization }
+CPPSModel >> initializeDefaultRules [
+	self
+		query: 'Long Methods/Functions'
+		meaning: 'Functions and Methods should not be longer than 50 lines of code'
+		as: [ :aModel | aModel allModelBehaviourals select: [ :each | each numberOfLinesOfCode > 50 ] ]
+		remediationTime: 15 minute.
+	self
+		query: 'Complex functions'
+		meaning: 'Functions should not be complex: cyclomatic complexity of more than 50'
+		as: [ :aModel | aModel allModelBehaviourals select: [ :each | each cyclomaticComplexity > 50 ] ]
+		remediationTime: 40 minute.
+	self
+		query: 'Duplication'
+		meaning: 'Functions should not have duplicate code'
+		as: [ :aModel | aModel allModelBehaviourals select: #containsReplicas ]
+		remediationTime: 10 minute.
+	self
+		query: 'Function Parameters'
+		meaning: 'Functions should not have more than 5 parameters'
+		as: [ :aModel | aModel allModelBehaviourals select: [ :each | each numberOfParameters > 5 ] ]
+		remediationTime: 10 minute.
+	self
+		query: 'Incoming Links'
+		meaning: 'More than 50 incoming calls mean that function is too complex'
+		as: [ :aModel | aModel allModelBehaviourals select: [ :each | each incomingInvocations size > 50 ] ]
+		remediationTime: 10 minute.
+	self
+		query: 'No Useful Comments'
+		meaning: 'Complex Functions without useful comments'
+		as:
+			[ :aModel | aModel allModelBehaviourals select: [ :each | each numberOfUsefulCommentLines = 0 & (each cyclomaticComplexity >= 10) & (each numberOfLinesOfCode > 30) ] ]
+		remediationTime: 10 minute.
+	self
+		query: 'Source Comment Rate 2.0'
+		meaning: 'Complex functions without enough comments (SCR 2.0 < 1)'
+		as: [ :aModel | aModel allModelBehaviourals select: [ :each | each sourceCommentRateWithCleaning < 1 ] ]
+		remediationTime: 10 minute
+]
+
+{ #category : #rules }
+CPPSModel >> query: aLabelString meaning: aMeaningString as: aBlock remediationTime: time [
+	^ self rulesManager
+		addRule:
+			(RuRule
+				rule: aBlock
+				label: aLabelString
+				explanation: aMeaningString
+				remediationTime: time)
+]
+
 { #category : #accessing }
 CPPSModel >> replicationDetectionConfiguration [
 	^ FamixRepConfiguration
@@ -63,4 +124,27 @@ CPPSModel >> replicationDetectionConfiguration [
 		minimumNumberOfReplicas: 2
 		ofLines: 100
 		ofCharacters: 80
+]
+
+{ #category : #rules }
+CPPSModel >> rules [
+	^ self rulesManager listAllRules
+]
+
+{ #category : #rules }
+CPPSModel >> rulesManager [
+	^ rulesManager
+]
+
+{ #category : #rules }
+CPPSModel >> rulesManager: anObject [
+	rulesManager := anObject.
+	rulesManager model: self
+]
+
+{ #category : #rules }
+CPPSModel >> technicalDebt [
+	"The technical debt computed from the rules of the model in number of days. (the result should not be used directly, you should format it)"
+
+	^ self rulesManager technicalDebt asDays
 ]
