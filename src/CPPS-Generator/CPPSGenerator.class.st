@@ -27,7 +27,8 @@ Class {
 		'for',
 		'if',
 		'switch',
-		'while'
+		'while',
+		'relativeSourceAnchor'
 	],
 	#category : #'CPPS-Generator'
 }
@@ -89,7 +90,8 @@ CPPSGenerator >> defineClasses [
 	for := builder newClassNamed: #For.
 	if := builder newClassNamed: #If.
 	switch := builder newClassNamed: #Switch.
-	while := builder newClassNamed: #While
+	while := builder newClassNamed: #While.
+	relativeSourceAnchor := builder newClassNamed: #RelativeSourceAnchor
 ]
 
 { #category : #definition }
@@ -178,7 +180,9 @@ CPPSGenerator >> defineHierarchy [
 	
 	switch --|> conditional.
 	
-	while --|> conditional
+	while --|> conditional.
+	
+	relativeSourceAnchor --|> #TSourceAnchor
 ]
 
 { #category : #definition }
