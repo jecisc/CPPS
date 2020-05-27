@@ -52,11 +52,32 @@ CPPSModel >> computeNumberOfLinesOfCode [
 	^ ((self allUsing: FamixTFileAnchor) groupedBy: #fileName) values sum: [ :indexedFileAnchorGroup | indexedFileAnchorGroup anyOne completeText lineCount ]
 ]
 
+{ #category : #actions }
+CPPSModel >> detectEncodingOfAllFileAnchors [
+	self execute: [ super detectEncodingOfAllFileAnchors ] recordedAs: 'Detection of the encodings of files'
+]
+
 { #category : #accessing }
 CPPSModel >> entitiesForReplicationDetection [
 	"for duplication entities we have to assert that their start and end are known. for now the problem only occurs for Siemens ref file, we might need to make it common to all models"
 
 	^ self allModelMethods asOrderedCollection, self allModelFunctions
+]
+
+{ #category : #actions }
+CPPSModel >> exportToMSEStream: aStream [
+	self execute: [ super exportToMSEStream: aStream ] recordedAs: 'Export of a ' , self class printString
+]
+
+{ #category : #actions }
+CPPSModel >> importFromMSEStream: aStream [
+	"In Synectique we constraints our models with assertions. During loading, the MSE parser does not guarantee the order of the loading and so the consistency of the model; that's why we have to ignore assertions during loading"
+
+	self
+		execute: [ [ super importFromMSEStream: aStream ]
+				on: AssertionFailure
+				do: [ :ex | ex resume ] ]
+		recordedAs: 'Import of a ' , self class printString
 ]
 
 { #category : #initialization }
