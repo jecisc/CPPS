@@ -12,19 +12,28 @@ BaselineOfCPPS >> baseline: spec [
 	<baseline>
 	spec
 		for: #common
-		do: [
-			"Dependencies"
-			self famix: spec.
+		do: [ "Dependencies"
+			self
+				famix: spec;
+				famixReplication: spec;
+				petitParser: spec;
+				petitParser2: spec.
 
 			"Packages"
 			spec
 				package: 'CPPS-Entities' with: [ spec requires: #('FamixReplication') ];
-				package: 'CPPS-Generator' with: [ spec requires: #('Famix') ].
+				package: 'CPPS-Entities-Tests' with: [ spec requires: #('CPPS-Entities') ];
+				package: 'CPPS-Generator' with: [ spec requires: #('Famix') ];
+				
+				package: 'CPPS-Parser' with: [ spec requires: #('CPPS-Entities' 'PetitParser2Core' 'PetitParser') ];
+				package: 'CPPS-Parser-Tests' with: [ spec requires: #('CPPS-Parser') ].
 
 			"Groups"
 			spec
 				group: 'Model' with: #('CPPS-Entities');
-				group: 'Generator' with: #('CPPS-Generator') ].
+				group: 'Parser' with: #('CPPS-Parser');
+				group: 'Generator' with: #('CPPS-Generator');
+				group: 'Tests' with: #('CPPS-Entities-Tests' 'CPPS-Parser-Tests') ]
 ]
 
 { #category : #dependencies }
@@ -43,6 +52,20 @@ BaselineOfCPPS >> famixReplication: spec [
 		with: [ spec
 				loads: #('Core' 'CPP');
 				repository: 'github://moosetechnology/FamixReplication:v1.x.x/src' ]
+]
+
+{ #category : #dependencies }
+BaselineOfCPPS >> petitParser2: spec [
+	spec baseline: 'PetitParser2Core' with: [ spec repository: 'github://kursjan/petitparser2' ]
+]
+
+{ #category : #dependencies }
+BaselineOfCPPS >> petitParser: spec [
+	spec
+		baseline: 'PetitParser'
+		with: [ spec
+				loads: #('Core' 'Preprocessor');
+				repository: 'github://moosetechnology/PetitParser:v2.x.x/src' ]
 ]
 
 { #category : #accessing }
