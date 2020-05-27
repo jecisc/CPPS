@@ -18,8 +18,8 @@ BaselineOfCPPS >> baseline: spec [
 
 			"Packages"
 			spec
-				package: 'CPPS-Entities' with: [ spec requires: #('Famix') ];
-				package: 'CPPS-Generator' with: [ spec requires: #('FamixGenerator') ].
+				package: 'CPPS-Entities' with: [ spec requires: #('FamixReplication') ];
+				package: 'CPPS-Generator' with: [ spec requires: #('Famix') ].
 
 			"Groups"
 			spec
@@ -31,10 +31,18 @@ BaselineOfCPPS >> baseline: spec [
 BaselineOfCPPS >> famix: spec [
 	spec
 		baseline: 'Famix'
-			with: [ spec
-				loads: #('Core');
-				repository: 'github://jecisc/Famix:v6.x.x/src' ];
-		project: 'FamixGenerator' copyFrom: 'Famix' with: [ spec loads: #('Basic') ]
+		with: [ spec
+				loads: #('Basic');
+				repository: 'github://moosetechnology/Famix:development/src' ]
+]
+
+{ #category : #dependencies }
+BaselineOfCPPS >> famixReplication: spec [
+	spec
+		baseline: 'FamixReplication'
+		with: [ spec
+				loads: #('Core' 'CPP');
+				repository: 'github://moosetechnology/FamixReplication:v1.x.x/src' ]
 ]
 
 { #category : #accessing }
