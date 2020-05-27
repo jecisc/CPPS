@@ -186,6 +186,14 @@ CPPSGenerator >> defineHierarchy [
 ]
 
 { #category : #definition }
+CPPSGenerator >> defineProperties [
+	super defineProperties.
+	(relativeSourceAnchor property: #relatedAnchor type: #FamixTSourceAnchor) comment: 'Source anchor to which I am relative.'.
+	(relativeSourceAnchor property: #startPos type: #Number) comment: 'Start position in the source'.
+	(relativeSourceAnchor property: #endPos type: #Number) comment: 'Stop position in the source'
+]
+
+{ #category : #definition }
 CPPSGenerator >> defineRelations [
 	((behavioralEntity property: #innerBlocks) comment: 'Blocks declared in this behavioural')
 		*- ((block property: #parentBlock) comment: '"Block" containing this block. belongsTo implementation')
