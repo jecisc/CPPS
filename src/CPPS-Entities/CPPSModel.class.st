@@ -21,6 +21,14 @@ CPPSModel class >> annotation [
 ]
 
 { #category : #accessing }
+CPPSModel >> allMainEntities [
+	^ self
+		lookUpPropertyNamed: #allMainEntities
+		computedAs: [ 'Compute allMainEntities' record.
+			self allModelBehaviourals , self allModelContainers ]
+]
+
+{ #category : #accessing }
 CPPSModel >> allModelClasses [
 	"a cpp model can have types or classes hence we show both: types and classes.
 	we double check here that types shown have sourceanchor in addition to checking in the super class that these are stubs
@@ -35,6 +43,11 @@ CPPSModel >> allModelFunctions [
 		lookUpPropertyNamed: #allModelFunctions
 		computedAs: [ 'Compute allModelFunctions' record.
 			self allFunctions reject: #isStub ]
+]
+
+{ #category : #metrics }
+CPPSModel >> complexityRate [
+	^ self allModelBehaviourals average: #cyclomaticComplexity
 ]
 
 { #category : #accessing }
