@@ -42,7 +42,7 @@ BaselineOfCPPS >> famix: spec [
 	spec
 		baseline: 'Famix'
 		with: [ spec
-				loads: #('Basic');
+				loads: #('Basic' 'CommentAnalyzer');
 				repository: 'github://moosetechnology/Famix:development/src' ]
 ]
 
