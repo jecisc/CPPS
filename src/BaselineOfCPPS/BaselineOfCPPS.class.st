@@ -23,9 +23,9 @@ BaselineOfCPPS >> baseline: spec [
 
 			"Packages"
 			spec
-				package: 'CPPS-Entities' with: [ spec requires: #('FamixReplication' 'Rules' 'FamixTagging') ];
+				package: 'CPPS-Entities' with: [ spec requires: #('FamixComments' 'FamixReplication' 'Rules' 'FamixTagging') ];
 				package: 'CPPS-Entities-Tests' with: [ spec requires: #('CPPS-Entities') ];
-				package: 'CPPS-Generator' with: [ spec requires: #('Famix') ];
+				package: 'CPPS-Generator' with: [ spec requires: #('FamixGeneration') ];
 				
 				package: 'CPPS-Parser' with: [ spec requires: #('CPPS-Entities' 'PetitParser2Core' 'PetitParser') ];
 				package: 'CPPS-Parser-Tests' with: [ spec requires: #('CPPS-Parser') ].
@@ -41,10 +41,9 @@ BaselineOfCPPS >> baseline: spec [
 { #category : #dependencies }
 BaselineOfCPPS >> famix: spec [
 	spec
-		baseline: 'Famix'
-		with: [ spec
-				loads: #('Basic' 'CommentAnalyzer');
-				repository: 'github://moosetechnology/Famix:development/src' ]
+		baseline: 'Famix' with: [ spec repository: 'github://moosetechnology/Famix:development/src' ];
+		project: 'FamixComments' copyFrom: 'Famix' with: [ spec loads: #('CommentAnalyzer') ];
+		project: 'FamixGeneration' copyFrom: 'Famix' with: [ spec loads: #('Basic') ]
 ]
 
 { #category : #dependencies }
