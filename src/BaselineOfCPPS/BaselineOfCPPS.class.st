@@ -16,13 +16,14 @@ BaselineOfCPPS >> baseline: spec [
 			self
 				famix: spec;
 				famixReplication: spec;
+				famixTagging: spec;
 				petitParser: spec;
 				petitParser2: spec;
 				rules: spec.
 
 			"Packages"
 			spec
-				package: 'CPPS-Entities' with: [ spec requires: #('FamixReplication' 'Rules') ];
+				package: 'CPPS-Entities' with: [ spec requires: #('FamixReplication' 'Rules' 'FamixTagging') ];
 				package: 'CPPS-Entities-Tests' with: [ spec requires: #('CPPS-Entities') ];
 				package: 'CPPS-Generator' with: [ spec requires: #('Famix') ];
 				
@@ -53,6 +54,11 @@ BaselineOfCPPS >> famixReplication: spec [
 		with: [ spec
 				loads: #('Core' 'CPP');
 				repository: 'github://moosetechnology/FamixReplication:v1.x.x/src' ]
+]
+
+{ #category : #dependencies }
+BaselineOfCPPS >> famixTagging: spec [
+	spec baseline: 'FamixTagging' with: [ spec repository: 'github://moosetechnology/FamixTagging:v1.x.x/src' ]
 ]
 
 { #category : #dependencies }
