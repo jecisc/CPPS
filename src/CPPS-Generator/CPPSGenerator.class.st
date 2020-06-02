@@ -182,15 +182,7 @@ CPPSGenerator >> defineHierarchy [
 	
 	while --|> conditional.
 	
-	relativeSourceAnchor --|> #TSourceAnchor
-]
-
-{ #category : #definition }
-CPPSGenerator >> defineProperties [
-	super defineProperties.
-	(relativeSourceAnchor property: #relatedAnchor type: #FamixTSourceAnchor) comment: 'Source anchor to which I am relative.'.
-	(relativeSourceAnchor property: #startPos type: #Number) comment: 'Start position in the source'.
-	(relativeSourceAnchor property: #endPos type: #Number) comment: 'Stop position in the source'
+	relativeSourceAnchor --|> #TRelativeSourceAnchor
 ]
 
 { #category : #definition }
