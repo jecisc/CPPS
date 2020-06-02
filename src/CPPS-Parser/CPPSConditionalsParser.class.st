@@ -52,11 +52,11 @@ CPPSConditionalsParser >> condition [
 
 { #category : #'as yet unclassified' }
 CPPSConditionalsParser >> createAnchorFromInfo: info [
-	^ SYNRelativeSourceAnchor new
-		start: info start;
-		stop: info stop;
+	^ CPPSRelativeSourceAnchor new
+		startPos: info start;
+		endPos: info stop;
 		relatedAnchor: self sourceAnchor;
-		initializeStartAndEndLineFrom: parsedString;
+		initializeStartAndEndLineFrom: parsedString; "We do it here to not have to parse again the file."
 		yourself
 ]
 
