@@ -147,7 +147,7 @@ CPPSGenerator >> defineHierarchy [
 	namespace --|> containerEntity.
 	namespace --|> #TNamespace.
 	namespace --|> #TWithFunctions.
-	namespace --|> #TWithTypes.
+	namespace --|> #TWithClasses.
 	namespace --|> #TWithGlobalVariables.
 
 	package --|> containerEntity.

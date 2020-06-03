@@ -1,8 +1,8 @@
 Class {
 	#name : #CPPSNamespace,
 	#superclass : #CPPSContainerEntity,
-	#traits : 'FamixTNamespace + FamixTWithFunctions + FamixTWithGlobalVariables + FamixTWithTypes',
-	#classTraits : 'FamixTNamespace classTrait + FamixTWithFunctions classTrait + FamixTWithGlobalVariables classTrait + FamixTWithTypes classTrait',
+	#traits : 'FamixTNamespace + FamixTWithClasses + FamixTWithFunctions + FamixTWithGlobalVariables',
+	#classTraits : 'FamixTNamespace classTrait + FamixTWithClasses classTrait + FamixTWithFunctions classTrait + FamixTWithGlobalVariables classTrait',
 	#instVars : [
 		'#childScopes => FMMany type: #CPPSNamespace opposite: #parentScope',
 		'#parentScope => FMOne type: #CPPSNamespace opposite: #childScopes'
