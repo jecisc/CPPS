@@ -147,7 +147,6 @@ CPPSGenerator >> defineHierarchy [
 	namespace --|> containerEntity.
 	namespace --|> #TNamespace.
 	namespace --|> #TWithFunctions.
-	namespace --|> #TScopingEntity.
 	namespace --|> #TWithTypes.
 	namespace --|> #TWithGlobalVariables.
 
@@ -188,5 +187,14 @@ CPPSGenerator >> defineHierarchy [
 { #category : #definition }
 CPPSGenerator >> defineRelations [
 	((behavioralEntity property: #innerBlocks) comment: 'Blocks declared in this behavioural')
-		*- ((block property: #parentBlock) comment: '"Block" containing this block. belongsTo implementation')
+		*- ((block property: #parentBlock) comment: '"Block" containing this block. belongsTo implementation').
+		
+		
+	self flag: #todo. "Improve properties names"
+	((namespace property: #parentScope)
+			comment: 'Parent scope embedding this scope, if any.';
+			container)
+		*-
+	((namespace property: #childScopes)
+			comment: 'Child scopes embedded in this scope, if any.').
 ]
