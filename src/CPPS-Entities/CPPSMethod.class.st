@@ -17,10 +17,10 @@ CPPSMethod class >> annotation [
 
 { #category : #accessing }
 CPPSMethod >> clientTypes [
-	<MSEProperty: #clientTypes type: #FamixTType>
+	<FMProperty: #clientTypes type: #FamixTType>
 	<multivalued>
 	<derived>
-	<MSEComment: 'All types that depend on the receiver'>
+	<FMComment: 'All types that depend on the receiver'>
 	^ (self queryAllIncoming atScope: FamixTType) withoutSelfLoops
 ]
 
@@ -38,9 +38,14 @@ CPPSMethod >> isConstructor: aBoolean [
 
 { #category : #testing }
 CPPSMethod >> isDead [
+	<FMProperty: #isDead type: #Boolean>
+	<derived>
+	<FMComment: 'Is the entity dead (not invoked in the system)'>
 	(self isConstructor or: [ self isDestructor ]) ifTrue: [ ^ false ].
 
-	^ super isDead
+	^ self isContainerEntity
+		ifTrue: [ self lookUpPropertyNamed: #isDead computedAs: [ self hasIncomingDependencies not or: [ self queryIncomingDependencies withoutSelfLoops isEmpty ] ] ]
+		ifFalse: [ false ]
 ]
 
 { #category : #testing }
