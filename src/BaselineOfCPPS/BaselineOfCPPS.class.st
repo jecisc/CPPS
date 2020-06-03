@@ -20,11 +20,12 @@ BaselineOfCPPS >> baseline: spec [
 				famixTagging: spec;
 				petitParser: spec;
 				petitParser2: spec;
-				rules: spec.
+				rules: spec;
+				tinyLogger: spec.
 
 			"Packages"
 			spec
-				package: 'CPPS-Entities' with: [ spec requires: #('Famix' 'FamixPresentation' 'FamixReplication' 'Rules' 'FamixTagging') ];
+				package: 'CPPS-Entities' with: [ spec requires: #('Famix' 'FamixPresentation' 'FamixReplication' 'Rules' 'FamixTagging' 'TinyLogger') ];
 				package: 'CPPS-Entities-Tests' with: [ spec requires: #('CPPS-Entities') ];
 				package: 'CPPS-Generator' with: [ spec requires: #('FamixGeneration') ];
 				
@@ -90,4 +91,13 @@ BaselineOfCPPS >> projectClass [
 { #category : #dependencies }
 BaselineOfCPPS >> rules: spec [
 	spec baseline: 'Rules' with: [ spec repository: 'github://jecisc/Rules:v1.x.x/src' ]
+]
+
+{ #category : #dependencies }
+BaselineOfCPPS >> tinyLogger: spec [
+	spec
+		baseline: 'TinyLogger'
+		with: [ spec
+				loads: #('Core');
+				repository: 'github://jecisc/TinyLogger:v1.x.x/src' ]
 ]
