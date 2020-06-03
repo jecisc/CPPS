@@ -17,5 +17,6 @@ CPPSMultipleFileAnchor class >> annotation [
 
 { #category : #adding }
 CPPSMultipleFileAnchor >> addFile: aFileAnchor [
-	self fileAnchors add: aFileAnchor
+	self deprecated: 'Use #addSourceAnchor: instead' transformWith: '`@receiver addFile: `@arg' -> '`@receiver addSourceAnchor: `@arg'.
+	self addSourceAnchor: aFileAnchor
 ]
