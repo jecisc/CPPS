@@ -50,7 +50,7 @@ CPPSConditionalsParser >> condition [
 				yourself ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #helpers }
 CPPSConditionalsParser >> createAnchorFromInfo: info [
 	^ CPPSRelativeSourceAnchor new
 		startPos: info start;
@@ -108,12 +108,12 @@ CPPSConditionalsParser >> oneLineStatement [
 	^ super oneLineStatement ==> [ :info | nil ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #parsing }
 CPPSConditionalsParser >> parse [
 	^ self parse: self sourceAnchor sourceText
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #parsing }
 CPPSConditionalsParser >> parse: aString [
 	('Parsing blocks of ' , self method mooseName asString) record.
 	parsedString := aString.
@@ -125,12 +125,12 @@ CPPSConditionalsParser >> parsedString [
 	^ parsedString
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #querying }
 CPPSConditionalsParser >> productionNames [
 	^ super productionNames \ {#method}
 ]
 
-{ #category : #help }
+{ #category : #helpers }
 CPPSConditionalsParser >> selectBlocksfrom: collection [
 	^ collection select: #isCPPSBlock
 ]
