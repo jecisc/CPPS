@@ -65,6 +65,11 @@ CPPSCSVImporter class >> modelClass [
 ]
 
 { #category : #'instance creation' }
+CPPSCSVImporter class >> runOn: aFolder [
+	^ self new runOn: aFolder asFileReference
+]
+
+{ #category : #'instance creation' }
 CPPSCSVImporter class >> runOn: aSourceFolder withRefFile: aFile withModel: aModel [
 	^ self new runOn: aSourceFolder withRefFile: aFile readStream withModel: aModel
 ]
