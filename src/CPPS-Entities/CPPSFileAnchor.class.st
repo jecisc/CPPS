@@ -19,7 +19,7 @@ CPPSFileAnchor class >> annotation [
 CPPSFileAnchor >> addFileAnchorWithPath: aPath [
 	^ CPPSMultipleFileAnchor new
 		mooseModel: self mooseModel;
-		addFile: self;
+		addSourceAnchor: self;
 		addFileAnchorWithPath: aPath;
 		yourself
 ]
