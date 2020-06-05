@@ -50,6 +50,12 @@ CPPSModel >> complexityRate [
 	^ self allModelBehaviourals average: #cyclomaticComplexity
 ]
 
+{ #category : #'dead code' }
+CPPSModel >> computeAllBehaviouralsWithDeadCode [
+	'Compute computeAllBehaviouralsWithDeadCode' record.
+	^ super computeAllBehaviouralsWithDeadCode
+]
+
 { #category : #accessing }
 CPPSModel >> computeAllModelBehaviourals [
 	self flag: #todo.	"we remove empty functions because these are function pointers and we dont know yet how to show  these in the interface correctly"
