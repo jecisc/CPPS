@@ -132,7 +132,7 @@ CPPSConditionalsParser >> productionNames [
 
 { #category : #help }
 CPPSConditionalsParser >> selectBlocksfrom: collection [
-	^ collection select: #isFAMIXBlock
+	^ collection select: #isCPPSBlock
 ]
 
 { #category : #accessing }
