@@ -28,7 +28,8 @@ Class {
 		'if',
 		'switch',
 		'while',
-		'relativeSourceAnchor'
+		'relativeSourceAnchor',
+		'comment'
 	],
 	#category : #'CPPS-Generator'
 }
@@ -73,6 +74,7 @@ CPPSGenerator >> defineClasses [
 	access := builder newClassNamed: #Access.
 	attribute := builder newClassNamed: #Attribute.
 	behavioralEntity := builder newClassNamed: #BehaviouralEntity.
+	comment := builder newClassNamed: #Comment.
 	containerEntity := builder newClassNamed: #ContainerEntity.
 	function := builder newClassNamed: #Function.
 	globalVariable := builder newClassNamed: #GlobalVariable.
@@ -113,6 +115,9 @@ CPPSGenerator >> defineHierarchy [
 	behavioralEntity --|> #TInvocable.
 	behavioralEntity --|> #TWithAccesses.
 	behavioralEntity --|> #TWithStatements.
+	
+	comment --|> sourcedEntity.
+	comment --|> #TComment.
 
 	containerEntity --|> namedEntity.
 
