@@ -1,8 +1,8 @@
 Class {
 	#name : #CPPSNamedEntity,
 	#superclass : #CPPSSourcedEntity,
-	#traits : 'FamixTHasModifiers + FamixTNamedEntity + TDependencyQueries + TEntityMetaLevelDependency',
-	#classTraits : 'FamixTHasModifiers classTrait + FamixTNamedEntity classTrait + TDependencyQueries classTrait + TEntityMetaLevelDependency classTrait',
+	#traits : 'FamixTHasModifiers + FamixTNamedEntity + TEntityMetaLevelDependency',
+	#classTraits : 'FamixTHasModifiers classTrait + FamixTNamedEntity classTrait + TEntityMetaLevelDependency classTrait',
 	#category : #'CPPS-Entities-Entities'
 }
 

@@ -146,7 +146,6 @@ CPPSGenerator >> defineHierarchy [
 
 	namedEntity --|> sourcedEntity.
 	namedEntity --|> #TNamedEntity.
-	namedEntity --|> #TDependencyQueries.
 	namedEntity --|> #TEntityMetaLevelDependency.
 	namedEntity --|> #THasModifiers.
 
