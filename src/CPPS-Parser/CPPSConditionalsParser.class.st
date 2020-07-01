@@ -157,7 +157,6 @@ CPPSConditionalsParser >> statement [
 			CPPSBlock new
 				parentBehavioural: self method;
 				sourceAnchor: (self createAnchorFromInfo: info);
-				types: (info element ifNil: [ #() ]);
 				yourself ]
 ]
 

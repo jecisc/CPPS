@@ -64,11 +64,26 @@ CPPSBlock >> endLine [
 	^ self sourceAnchor endLine
 ]
 
+{ #category : #initialization }
+CPPSBlock >> getMyLocalsFrom: aCollection [
+	"from aCollection of entities (or associations) with FileAnchors,
+	 return those that are in the scope of receiver"
+
+	^ aCollection select: [ :each | each sourceAnchor isNotNil and: [ each sourceAnchor isWithin: self sourceAnchor ] ]
+]
+
 { #category : #testing }
 CPPSBlock >> isCPPSBlock [
 
 	<generated>
 	^ true
+]
+
+{ #category : #initialization }
+CPPSBlock >> localizeDefsAndRefs [
+	(parentBlock isNotNil and: [ sourceAnchor isNotNil ]) ifFalse: [ ^ self ].
+	self outgoingInvocations: (self getMyLocalsFrom: parentBlock outgoingInvocations).
+	self accesses: (self getMyLocalsFrom: parentBlock accesses)
 ]
 
 { #category : #accessing }
@@ -79,6 +94,12 @@ CPPSBlock >> mooseModel [
 { #category : #accessing }
 CPPSBlock >> name [
 	^ String streamContents: [ :s | self printOn: s ]
+]
+
+{ #category : #accessing }
+CPPSBlock >> parentBehavioural: anObject [
+	parentBlock := anObject.
+	self localizeDefsAndRefs
 ]
 
 { #category : #accessing }
@@ -107,6 +128,19 @@ CPPSBlock >> printOn: aStream [
 		nextPutAll: '@';
 		print: sourceAnchor endPos;
 		nextPut: $)
+]
+
+{ #category : #testing }
+CPPSBlock >> shouldBeDisplayedBefore: anEntity [
+	^ anEntity isCPPSBlock
+		ifTrue: [ self start < anEntity start ]
+		ifFalse: [ (anEntity shouldBeDisplayedBefore: self) not ]
+]
+
+{ #category : #accessing }
+CPPSBlock >> sourceAnchor: aSourceAnchor [
+	super sourceAnchor: aSourceAnchor.
+	self localizeDefsAndRefs 
 ]
 
 { #category : #accessing }
