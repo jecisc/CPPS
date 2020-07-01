@@ -38,6 +38,18 @@ CPPSBlock class >> nameTranslations [
 		with: #french -> 'Bloc'
 ]
 
+{ #category : #accessing }
+CPPSBlock >> accesses [
+	accesses ifNil: [ self localizeDefsAndRefs ].
+	^ super accesses
+]
+
+{ #category : #accessing }
+CPPSBlock >> accesses: aCollection [
+	"re-implementing o that it does not set the reverse link from elements in aCollection to self"
+	accesses := aCollection 
+]
+
 { #category : #adding }
 CPPSBlock >> addParentBlock: anObject [
 	<generated>
@@ -94,6 +106,12 @@ CPPSBlock >> mooseModel [
 { #category : #accessing }
 CPPSBlock >> name [
 	^ String streamContents: [ :s | self printOn: s ]
+]
+
+{ #category : #accessing }
+CPPSBlock >> outgoingInvocations: aCollection [
+	"re-implementing so that it does not set the reverse link from elements in aCollection to self"
+	outgoingInvocations := aCollection 
 ]
 
 { #category : #accessing }
