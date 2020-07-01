@@ -192,7 +192,7 @@ CPPSGenerator >> defineHierarchy [
 { #category : #definition }
 CPPSGenerator >> defineRelations [
 	((behavioralEntity property: #innerBlocks) comment: 'Blocks declared in this behavioural')
-		*- ((block property: #parentBlock) comment: '"Block" containing this block. belongsTo implementation').
+		-* ((block property: #parentBlock) comment: '"Block" containing this block. belongsTo implementation').
 		
 		
 	self flag: #todo. "Improve properties names"

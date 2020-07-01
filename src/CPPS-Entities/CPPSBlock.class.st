@@ -2,7 +2,7 @@ Class {
 	#name : #CPPSBlock,
 	#superclass : #CPPSBehaviouralEntity,
 	#instVars : [
-		'#parentBlock => FMMany type: #CPPSBehaviouralEntity opposite: #innerBlocks'
+		'#parentBlock => FMOne type: #CPPSBehaviouralEntity opposite: #innerBlocks'
 	],
 	#category : #'CPPS-Entities-Entities'
 }
@@ -48,12 +48,6 @@ CPPSBlock >> accesses [
 CPPSBlock >> accesses: aCollection [
 	"re-implementing o that it does not set the reverse link from elements in aCollection to self"
 	accesses := aCollection 
-]
-
-{ #category : #adding }
-CPPSBlock >> addParentBlock: anObject [
-	<generated>
-	^ self parentBlock add: anObject
 ]
 
 { #category : #accessing }
@@ -126,7 +120,6 @@ CPPSBlock >> parentBlock [
 
 	<generated>
 	<FMComment: '"Block" containing this block. belongsTo implementation'>
-	<derived>
 	^ parentBlock
 ]
 
@@ -134,7 +127,7 @@ CPPSBlock >> parentBlock [
 CPPSBlock >> parentBlock: anObject [
 
 	<generated>
-	parentBlock value: anObject
+	parentBlock := anObject
 ]
 
 { #category : #printing }

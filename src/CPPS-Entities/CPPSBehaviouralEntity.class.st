@@ -4,7 +4,7 @@ Class {
 	#traits : 'FamixTInvocable + FamixTWithAccesses + FamixTWithInvocations + FamixTWithStatements',
 	#classTraits : 'FamixTInvocable classTrait + FamixTWithAccesses classTrait + FamixTWithInvocations classTrait + FamixTWithStatements classTrait',
 	#instVars : [
-		'#innerBlocks => FMOne type: #CPPSBlock opposite: #parentBlock'
+		'#innerBlocks => FMMany type: #CPPSBlock opposite: #parentBlock'
 	],
 	#category : #'CPPS-Entities-Entities'
 }
@@ -24,6 +24,7 @@ CPPSBehaviouralEntity >> innerBlocks [
 
 	<generated>
 	<FMComment: 'Blocks declared in this behavioural'>
+	<derived>
 	^ innerBlocks
 ]
 
@@ -31,5 +32,5 @@ CPPSBehaviouralEntity >> innerBlocks [
 CPPSBehaviouralEntity >> innerBlocks: anObject [
 
 	<generated>
-	innerBlocks := anObject
+	innerBlocks value: anObject
 ]
