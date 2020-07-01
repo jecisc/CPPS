@@ -27,6 +27,11 @@ CPPSBlock class >> initialToDisplay [
 ]
 
 { #category : #display }
+CPPSBlock class >> kindAbbreviation [
+	^ 'B'
+]
+
+{ #category : #display }
 CPPSBlock class >> nameTranslations [
 	^ Dictionary
 		with: #english -> 'Block'
