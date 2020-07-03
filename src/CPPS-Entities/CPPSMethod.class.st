@@ -30,13 +30,6 @@ CPPSMethod >> isConstructor [
 ]
 
 { #category : #testing }
-CPPSMethod >> isConstructor: aBoolean [
-	aBoolean
-		ifTrue: [ self kind: #constructor ]
-		ifFalse: [ self isConstructor ifTrue: [ self kind: nil ] ]
-]
-
-{ #category : #testing }
 CPPSMethod >> isDead [
 	<FMProperty: #isDead type: #Boolean>
 	<derived>

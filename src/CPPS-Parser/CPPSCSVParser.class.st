@@ -265,7 +265,7 @@ CPPSCSVParser >> function [
 					self flag: #TODO	"Ask Gaelle to correct the parser problem" ] ]
 ]
 
-{ #category : #accessing }
+{ #category : #initialization }
 CPPSCSVParser >> initialize [
 	super initialize.
 	filesLocationsMap := Dictionary new.
