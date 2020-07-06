@@ -1,8 +1,8 @@
 Class {
 	#name : #CPPSMethod,
 	#superclass : #CPPSBehaviouralEntity,
-	#traits : 'FamixTHasModifiers + FamixTMethod + FamixTWithTypes',
-	#classTraits : 'FamixTHasModifiers classTrait + FamixTMethod classTrait + FamixTWithTypes classTrait',
+	#traits : '(FamixTHasModifiers + FamixTMethod + FamixTWithTypes withPrecedenceOf: FamixTHasModifiers)',
+	#classTraits : '(FamixTHasModifiers classTrait + FamixTMethod classTrait + FamixTWithTypes classTrait withPrecedenceOf: FamixTHasModifiers classTrait)',
 	#category : #'CPPS-Entities-Entities'
 }
 

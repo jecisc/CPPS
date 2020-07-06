@@ -18,6 +18,12 @@ CPPSBehaviouralEntity class >> annotation [
 	^self
 ]
 
+{ #category : #adding }
+CPPSBehaviouralEntity >> addInnerBlock: anObject [
+	<generated>
+	^ self innerBlocks add: anObject
+]
+
 { #category : #accessing }
 CPPSBehaviouralEntity >> innerBlocks [
 	"Relation named: #innerBlocks type: #CPPSBlock opposite: #parentBlock"

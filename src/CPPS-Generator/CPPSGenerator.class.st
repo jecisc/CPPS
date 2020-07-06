@@ -140,6 +140,7 @@ CPPSGenerator >> defineHierarchy [
 	method --|> #TMethod.
 	method --|> #THasModifiers.
 	method --|> #TWithTypes.
+	method withPrecedenceOf: #THasModifiers.
 
 	multipleFileAnchor --|> sourceAnchor.
 	multipleFileAnchor --|> #TMultipleFileAnchor.
