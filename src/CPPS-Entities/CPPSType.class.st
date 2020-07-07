@@ -14,3 +14,8 @@ CPPSType class >> annotation [
 	<generated>
 	^self
 ]
+
+{ #category : #deprecated }
+CPPSType >> belongsTo [
+	^ self parentPackage
+]
