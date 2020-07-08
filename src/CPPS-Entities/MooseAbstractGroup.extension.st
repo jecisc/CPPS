@@ -15,3 +15,13 @@ MooseAbstractGroup >> gtInspectorItemsIn: composite [
 						ifTrue: [ result anyOne value ]
 						ifFalse: [ self species withAll: (result collect: [ :each | each value ]) ] ] ]
 ]
+
+{ #category : #'*CPPS-Entities' }
+MooseAbstractGroup >> lookUpPropertyNamed: selector computedAs: aBlock [
+	^ super
+		lookUpPropertyNamed: selector
+		computedAs: [ 
+			[ aBlock value ]
+				on: ZeroDivide
+				do: [ MooseUnavailableMetric ] ]
+]
