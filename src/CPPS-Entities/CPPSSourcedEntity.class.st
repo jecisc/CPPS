@@ -14,3 +14,13 @@ CPPSSourcedEntity class >> annotation [
 	<generated>
 	^self
 ]
+
+{ #category : #'as yet unclassified' }
+CPPSSourcedEntity >> gtInspectorSourceTextIn: composite [
+	<gtInspectorPresentationOrder: 20>
+	composite text
+		title: 'Source code';
+		withLineNumbers: true;
+		format: [ self sourceText ];
+		when: [ self sourceText isNotEmpty ]
+]

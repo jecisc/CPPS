@@ -12,3 +12,13 @@ CPPSContainerEntity class >> annotation [
 	<generated>
 	^self
 ]
+
+{ #category : #'as yet unclassified' }
+CPPSContainerEntity >> allClients [
+	^ self lookUpPropertyNamed: #allClients computedAs: [ super allClients ]
+]
+
+{ #category : #'as yet unclassified' }
+CPPSContainerEntity >> allProviders [
+	^ self lookUpPropertyNamed: #allProviders computedAs: [ super allProviders ]
+]
