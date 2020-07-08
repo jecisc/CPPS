@@ -63,6 +63,12 @@ CPPSModel >> computeAllModelBehaviourals [
 ]
 
 { #category : #accessing }
+CPPSModel >> computeAllModelContainers [
+	'Compute all model containers' record.
+	^ (self allWithSubTypesOf: CPPSContainerEntity) reject: #isStub
+]
+
+{ #category : #accessing }
 CPPSModel >> computeNumberOfLinesOfCode [
 	"the number of lines of code for a C/C++ model is the number of lines in individual source (header and source) files."
 
