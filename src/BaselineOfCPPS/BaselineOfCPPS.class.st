@@ -18,6 +18,7 @@ BaselineOfCPPS >> baseline: spec [
 				famixPresentation: spec;
 				famixReplication: spec;
 				famixTagging: spec;
+				mooseProject: spec;
 				petitParser: spec;
 				petitParser2: spec;
 				rules: spec;
@@ -25,13 +26,10 @@ BaselineOfCPPS >> baseline: spec [
 
 			"Packages"
 			spec
-				package: 'CPPS-Entities' with: [ spec requires: #('Famix' 'Moose-ProjectHolder-Core' 'FamixPresentation' 'FamixReplication' 'Rules' 'FamixTagging' 'TinyLogger') ];
-				package: 'CPPS-Entities-Tests' with: [ spec requires: #('CPPS-Entities') ];
+				package: 'CPPS-Entities' with: [ spec requires: #('Famix' 'MooseProject' 'FamixPresentation' 'FamixReplication' 'Rules' 'FamixTagging' 'TinyLogger') ];
+				package: 'CPPS-Entities-Tests' with: [ spec requires: #('CPPS-Entities' 'MooseProjectTests') ];
 				package: 'CPPS-Generator' with: [ spec requires: #('FamixGeneration') ];
-				
-				package: 'Moose-ProjectHolder-Core' with: [ spec requires: #('Famix') ];
-				package: 'Moose-ProjectHolder-Tests' with: [ spec requires: #('Moose-ProjectHolder-Core') ];
-				
+
 				package: 'CPPS-Parser' with: [ spec requires: #('CPPS-Entities' 'PetitParser2Core' 'PetitParser') ];
 				package: 'CPPS-Parser-Tests' with: [ spec requires: #('CPPS-Parser') ].
 
@@ -40,7 +38,7 @@ BaselineOfCPPS >> baseline: spec [
 				group: 'Model' with: #('CPPS-Entities');
 				group: 'Parser' with: #('CPPS-Parser');
 				group: 'Generator' with: #('CPPS-Generator');
-				group: 'Tests' with: #('CPPS-Entities-Tests' 'CPPS-Parser-Tests' 'Moose-ProjectHolder-Tests') ]
+				group: 'Tests' with: #('CPPS-Entities-Tests' 'CPPS-Parser-Tests') ]
 ]
 
 { #category : #dependencies }
@@ -70,6 +68,16 @@ BaselineOfCPPS >> famixReplication: spec [
 { #category : #dependencies }
 BaselineOfCPPS >> famixTagging: spec [
 	spec baseline: 'FamixTagging' with: [ spec repository: 'github://moosetechnology/FamixTagging:v1.x.x/src' ]
+]
+
+{ #category : #dependencies }
+BaselineOfCPPS >> mooseProject: spec [
+	spec
+		baseline: 'MooseProject'
+			with: [ spec
+				loads: 'Core';
+				repository: 'github://moosetechnology/MooseProject:v1.x.x/src' ];
+		project: 'MooseProjectTests' copyFrom: 'MooseProject' with: [ spec loads: 'Tests' ]
 ]
 
 { #category : #dependencies }
