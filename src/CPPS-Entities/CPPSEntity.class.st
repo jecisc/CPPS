@@ -117,13 +117,3 @@ CPPSEntity >> isType [
 	<generated>
 	^ false
 ]
-
-{ #category : #'as yet unclassified' }
-CPPSEntity >> lookUpPropertyNamed: selector computedAs: aBlock [
-	^ super
-		lookUpPropertyNamed: selector
-		computedAs: [ 
-			[ aBlock value ]
-				on: ZeroDivide
-				do: [ MooseUnavailableMetric ] ]
-]

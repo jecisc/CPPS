@@ -94,7 +94,7 @@ CPPSBlock >> localizeDefsAndRefs [
 
 { #category : #accessing }
 CPPSBlock >> mooseModel [
-	^ self privateState attributeAt: #mooseModel ifAbsent: [ parentBlock mooseModel ifNil: [ super mooseModel ] ]
+	^ self attributeAt: #mooseModel ifAbsent: [ parentBlock mooseModel ifNil: [ super mooseModel ] ]
 ]
 
 { #category : #accessing }
