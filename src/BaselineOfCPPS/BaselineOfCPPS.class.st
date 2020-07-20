@@ -22,7 +22,8 @@ BaselineOfCPPS >> baseline: spec [
 				petitParser: spec;
 				petitParser2: spec;
 				rules: spec;
-				tinyLogger: spec.
+				tinyLogger: spec;
+				xmiAnalyzer: spec.
 
 			"Packages"
 			spec
@@ -31,14 +32,18 @@ BaselineOfCPPS >> baseline: spec [
 				package: 'CPPS-Generator' with: [ spec requires: #('FamixGeneration') ];
 
 				package: 'CPPS-Parser' with: [ spec requires: #('CPPS-Entities' 'PetitParser2Core' 'PetitParser') ];
-				package: 'CPPS-Parser-Tests' with: [ spec requires: #('CPPS-Parser') ].
+				package: 'CPPS-Parser-Tests' with: [ spec requires: #('CPPS-Parser') ];
+				
+				package: 'CPPS-Architecture' with: [ spec requires: #('CPPS-Entities' 'XMIAnalyzer') ];
+				package: 'CPPS-Architecture-Tests' with: [ spec requires: #('CPPS-Architecture') ].
 
 			"Groups"
 			spec
 				group: 'Model' with: #('CPPS-Entities');
+				group: 'Architecture' with: #('CPPS-Architecture');
 				group: 'Parser' with: #('CPPS-Parser');
 				group: 'Generator' with: #('CPPS-Generator');
-				group: 'Tests' with: #('CPPS-Entities-Tests' 'CPPS-Parser-Tests') ]
+				group: 'Tests' with: #('CPPS-Entities-Tests' 'CPPS-Parser-Tests' 'CPPS-Architecture-Tests') ]
 ]
 
 { #category : #dependencies }
@@ -111,4 +116,9 @@ BaselineOfCPPS >> tinyLogger: spec [
 		with: [ spec
 				loads: #('Core');
 				repository: 'github://jecisc/TinyLogger:v1.x.x/src' ]
+]
+
+{ #category : #dependencies }
+BaselineOfCPPS >> xmiAnalyzer: spec [
+	spec baseline: 'XMIAnalyzer' with: [ spec repository: 'github://moosetechnology/xmi-analyzer:v1.x.x/repository' ]
 ]
