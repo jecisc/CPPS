@@ -35,11 +35,14 @@ BaselineOfCPPS >> baseline: spec [
 				package: 'CPPS-Parser-Tests' with: [ spec requires: #('CPPS-Parser') ];
 				
 				package: 'CPPS-Architecture' with: [ spec requires: #('CPPS-Entities' 'XMIAnalyzer') ];
-				package: 'CPPS-Architecture-Tests' with: [ spec requires: #('CPPS-Architecture') ].
+				package: 'CPPS-Architecture-Tests' with: [ spec requires: #('CPPS-Architecture') ];
+				
+				package: 'Famix-Queries' with: [ spec requires: #('Model') ].
 
 			"Groups"
 			spec
 				group: 'Model' with: #('CPPS-Entities');
+				group: 'Queries' with: #('Famix-Queries');
 				group: 'Architecture' with: #('CPPS-Architecture');
 				group: 'Parser' with: #('CPPS-Parser');
 				group: 'Generator' with: #('CPPS-Generator');
