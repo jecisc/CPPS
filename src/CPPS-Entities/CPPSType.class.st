@@ -15,6 +15,11 @@ CPPSType class >> annotation [
 	^self
 ]
 
+{ #category : #display }
+CPPSType class >> priority [
+	^ 350
+]
+
 { #category : #deprecated }
 CPPSType >> belongsTo [
 	^ self parentPackage

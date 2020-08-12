@@ -19,6 +19,11 @@ CPPSNamespace class >> annotation [
 	^self
 ]
 
+{ #category : #display }
+CPPSNamespace class >> priority [
+	^ 450
+]
+
 { #category : #adding }
 CPPSNamespace >> addChildScope: anObject [
 	<generated>

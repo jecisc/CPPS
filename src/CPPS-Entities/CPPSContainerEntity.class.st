@@ -12,3 +12,8 @@ CPPSContainerEntity class >> annotation [
 	<generated>
 	^self
 ]
+
+{ #category : #display }
+CPPSContainerEntity class >> priority [
+	^ 300
+]

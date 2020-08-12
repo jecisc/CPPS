@@ -79,6 +79,13 @@ CPPSBlock >> getMyLocalsFrom: aCollection [
 ]
 
 { #category : #testing }
+CPPSBlock >> hasPriorityOn: anEntity [
+	^ anEntity isCPPSBlock
+		ifTrue: [ self start < anEntity start ]
+		ifFalse: [ (anEntity hasPriorityOn: self) not ]
+]
+
+{ #category : #testing }
 CPPSBlock >> isCPPSBlock [
 
 	<generated>
@@ -139,13 +146,6 @@ CPPSBlock >> printOn: aStream [
 		nextPutAll: '@';
 		print: sourceAnchor endPos;
 		nextPut: $)
-]
-
-{ #category : #testing }
-CPPSBlock >> shouldBeDisplayedBefore: anEntity [
-	^ anEntity isCPPSBlock
-		ifTrue: [ self start < anEntity start ]
-		ifFalse: [ (anEntity shouldBeDisplayedBefore: self) not ]
 ]
 
 { #category : #accessing }

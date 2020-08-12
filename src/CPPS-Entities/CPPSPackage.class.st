@@ -14,3 +14,8 @@ CPPSPackage class >> annotation [
 	<generated>
 	^self
 ]
+
+{ #category : #display }
+CPPSPackage class >> priority [
+	^ 425
+]

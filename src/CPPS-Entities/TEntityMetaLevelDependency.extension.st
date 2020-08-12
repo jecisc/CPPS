@@ -19,3 +19,8 @@ TEntityMetaLevelDependency >> numberOfInternalProviders [
 		lookUpPropertyNamed: #numberOfInternalProviders
 		computedAs: [ (self allProviders select: [ :entity | entity allParents includesAny: self parents ]) size ]
 ]
+
+{ #category : #'*CPPS-Entities' }
+TEntityMetaLevelDependency >> sortedChildrenByPriority [
+	^ self children sorted: [ :child1 :child2 | child1 hasPriorityOn: child2 ]
+]
