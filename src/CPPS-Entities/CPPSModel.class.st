@@ -96,7 +96,7 @@ CPPSModel >> exportToMSEStream: aStream [
 
 { #category : #actions }
 CPPSModel >> importFromMSEStream: aStream [
-	"In Synectique we constraints our models with assertions. During loading, the MSE parser does not guarantee the order of the loading and so the consistency of the model; that's why we have to ignore assertions during loading"
+	"During loading, the MSE parser does not guarantee the order of the loading and so the consistency of the model; that's why we have to ignore assertions during loading"
 
 	self
 		execute: [ [ super importFromMSEStream: aStream ]

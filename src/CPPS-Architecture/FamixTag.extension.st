@@ -10,7 +10,7 @@ FamixTag >> asArchitecturalEntity [
 
 { #category : #'*CPPS-Architecture' }
 FamixTag >> entity [
-	"This method is designed for the polymorphic with SYNArchitectureFAMIXLink"
+	"This method is designed for the polymorphic with CPPSArchitectureEntityBridge"
 
 	^ self
 ]
