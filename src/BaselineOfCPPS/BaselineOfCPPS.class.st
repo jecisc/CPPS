@@ -22,6 +22,7 @@ BaselineOfCPPS >> baseline: spec [
 				petitParser: spec;
 				petitParser2: spec;
 				rules: spec;
+				telescopeCytoscape: spec;
 				tinyLogger: spec;
 				xmiAnalyzer: spec.
 
@@ -37,6 +38,8 @@ BaselineOfCPPS >> baseline: spec [
 				package: 'CPPS-Architecture' with: [ spec requires: #('CPPS-Entities' 'XMIAnalyzer') ];
 				package: 'CPPS-Architecture-Tests' with: [ spec requires: #('CPPS-Architecture') ];
 				
+				package: 'CPPS-Visualizations' with: [ spec requires: #('Model' 'Architecture' 'TelescopeCytoscape') ];
+				
 				package: 'Famix-Queries' with: [ spec requires: #('Model') ].
 
 			"Groups"
@@ -45,6 +48,7 @@ BaselineOfCPPS >> baseline: spec [
 				group: 'Queries' with: #('Famix-Queries');
 				group: 'Architecture' with: #('CPPS-Architecture');
 				group: 'Parser' with: #('CPPS-Parser');
+				group: 'Visualizations' with: #('CPPS-Visualizations');
 				group: 'Generator' with: #('CPPS-Generator');
 				group: 'Tests' with: #('CPPS-Entities-Tests' 'CPPS-Parser-Tests' 'CPPS-Architecture-Tests') ]
 ]
@@ -110,6 +114,14 @@ BaselineOfCPPS >> projectClass [
 { #category : #dependencies }
 BaselineOfCPPS >> rules: spec [
 	spec baseline: 'Rules' with: [ spec repository: 'github://jecisc/Rules:v1.x.x/src' ]
+]
+
+{ #category : #dependencies }
+BaselineOfCPPS >> telescopeCytoscape: spec [
+
+	spec
+		baseline: 'TelescopeCytoscape'
+		with: [ spec repository: 'github://TelescopeSt/TelescopeCytoscape:v2.x.x/src' ]
 ]
 
 { #category : #dependencies }
