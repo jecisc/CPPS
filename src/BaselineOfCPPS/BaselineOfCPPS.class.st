@@ -27,7 +27,6 @@ BaselineOfCPPS >> baseline: spec [
 				xmiAnalyzer: spec;
 				bugReport: spec;
 				chartJs: spec;
-				cpps: spec;
 				deploymentUtility: spec;
 				heimdall: spec;
 				magritte: spec;
