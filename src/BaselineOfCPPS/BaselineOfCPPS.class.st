@@ -24,7 +24,17 @@ BaselineOfCPPS >> baseline: spec [
 				rules: spec;
 				telescopeCytoscape: spec;
 				tinyLogger: spec;
-				xmiAnalyzer: spec.
+				xmiAnalyzer: spec;
+				bugReport: spec;
+				chartJs: spec;
+				cpps: spec;
+				deploymentUtility: spec;
+				heimdall: spec;
+				magritte: spec;
+				materialDesignLite: spec;
+				prismCodeDisplayer: spec;
+				seaside3: spec;
+				systemInteraction: spec.
 
 			"Packages"
 			spec
@@ -40,7 +50,23 @@ BaselineOfCPPS >> baseline: spec [
 				
 				package: 'CPPS-Visualizations' with: [ spec requires: #('Model' 'Architecture' 'TelescopeCytoscape') ];
 				
-				package: 'Famix-Queries' with: [ spec requires: #('Model') ].
+				package: 'Famix-Queries' with: [ spec requires: #('Model') ];
+				
+				
+
+				package: 'CPPS-Toolkit-ArchitectureSimulation' with: [ spec requires: #('CPPS-Toolkit-Core' 'CPPS-Toolkit-CodeAnalyzer') ];
+				package: 'CPPS-Toolkit-CodeAnalyzer' with: [ spec requires: #('PrismCodeDisplayer' 'CPPS-Toolkit-ClassSplitter') ];
+				package: 'CPPS-Toolkit-ClassSplitter' with: [ spec requires: #('CPPS-Toolkit-Core') ];
+				package: 'CPPS-Toolkit-Core' with: [ spec requires: #('Seaside3' 'MaterialDesignLite' 'Heimdall' 'CPPS-Toolkit-Server' 'CPPS-Toolkit-Magritte') ];
+				package: 'CPPS-Toolkit-Dashboard' with: [ spec requires: #('ChartJs' 'CPPS-Toolkit-CodeAnalyzer') ];
+				package: 'CPPS-Toolkit-Duplication' with: [ spec requires: #('CPPS-Toolkit-Core' 'PrismCodeDisplayer' 'ChartJs') ];
+				package: 'CPPS-Toolkit-Executive' with: [ spec requires: #('CPPS-Toolkit-Core' 'CPPS-Toolkit-CodeAnalyzer') ];
+				package: 'CPPS-Toolkit-QueryBrowser' with: [ spec requires: #('CPPS-Toolkit-Core' 'CPPS-Toolkit-Duplication') ];
+				package: 'CPPS-Toolkit-RefactoringImpactAnalyzer' with: [ spec requires: #('CPPS-Toolkit-Core') ];
+				package: 'CPPS-Toolkit-RulesBrowser' with: [ spec requires: #('CPPS-Toolkit-QueryBrowser') ];
+				package: 'CPPS-Toolkit-Server' with: [ spec requires: #('Backend' 'DeploymentUtility' 'SystemInteraction' 'BugReport') ];
+
+				package: 'CPPS-Toolkit-Magritte' with: [ spec requires: #('Magritte')].
 
 			"Groups"
 			spec
@@ -50,7 +76,28 @@ BaselineOfCPPS >> baseline: spec [
 				group: 'Parser' with: #('CPPS-Parser');
 				group: 'Visualizations' with: #('CPPS-Visualizations');
 				group: 'Generator' with: #('CPPS-Generator');
-				group: 'Tests' with: #('CPPS-Entities-Tests' 'CPPS-Parser-Tests' 'CPPS-Architecture-Tests') ]
+				group: 'Tests' with: #('CPPS-Entities-Tests' 'CPPS-Parser-Tests' 'CPPS-Architecture-Tests');
+				group: 'Backend' with: #('Model' 'Queries' 'Architecture' 'Parser' 'Visualizations' 'Generator' 'Tests');
+				group: 'Server' with: #('CPPS-Toolkit-Server') ]
+]
+
+{ #category : #dependencies }
+BaselineOfCPPS >> bugReport: spec [
+	spec
+		baseline: 'BugReport'
+		with: [ spec
+				loads: 'Core';
+				repository: 'github://jecisc/BugReport:v1.x.x/src' ]
+]
+
+{ #category : #dependencies }
+BaselineOfCPPS >> chartJs: spec [
+	spec baseline: 'ChartJs' with: [ spec repository: 'github://DuneSt/ChartJs:v1.x.x/src' ]
+]
+
+{ #category : #dependencies }
+BaselineOfCPPS >> deploymentUtility: spec [
+	spec baseline: 'DeploymentUtility' with: [ spec repository: 'github://jecisc/DeploymentUtility:v1.x.x/src' ]
 ]
 
 { #category : #dependencies }
@@ -83,6 +130,25 @@ BaselineOfCPPS >> famixTagging: spec [
 ]
 
 { #category : #dependencies }
+BaselineOfCPPS >> heimdall: spec [
+	spec baseline: 'Heimdall' with: [ spec repository: 'github://DuneSt/Heimdall:v1.x.x/src' ]
+]
+
+{ #category : #dependencies }
+BaselineOfCPPS >> magritte: spec [
+	spec
+		baseline: 'Magritte'
+		with: [ spec
+				loads: #('Core' 'Seaside');
+				repository: 'github://jecisc/magritte:v1PharoMinimal/source' ]
+]
+
+{ #category : #dependencies }
+BaselineOfCPPS >> materialDesignLite: spec [
+	spec baseline: 'MaterialDesignLite' with: [ spec repository: 'github://DuneSt/MaterialDesignLite:v2.x.x/src' ]
+]
+
+{ #category : #dependencies }
 BaselineOfCPPS >> mooseProject: spec [
 	spec
 		baseline: 'MooseProject'
@@ -106,6 +172,13 @@ BaselineOfCPPS >> petitParser: spec [
 				repository: 'github://moosetechnology/PetitParser:v2.x.x/src' ]
 ]
 
+{ #category : #dependencies }
+BaselineOfCPPS >> prismCodeDisplayer: spec [
+	spec
+		baseline: 'PrismCodeDisplayer'
+		with: [ spec repository: 'github://DuneSt/PrismCodeDisplayer:v1.x.x/src' ]
+]
+
 { #category : #accessing }
 BaselineOfCPPS >> projectClass [
 	^ MetacelloCypressBaselineProject
@@ -114,6 +187,24 @@ BaselineOfCPPS >> projectClass [
 { #category : #dependencies }
 BaselineOfCPPS >> rules: spec [
 	spec baseline: 'Rules' with: [ spec repository: 'github://jecisc/Rules:v1.x.x/src' ]
+]
+
+{ #category : #dependencies }
+BaselineOfCPPS >> seaside3: spec [
+	spec
+		baseline: 'Seaside3'
+		with: [ spec
+				loads: #('Core' 'JQuery' 'Zinc');
+				repository: 'github://SeasideSt/Seaside:v3.4.x/repository' ]
+]
+
+{ #category : #dependencies }
+BaselineOfCPPS >> systemInteraction: spec [
+	spec
+		baseline: 'SystemInteraction'
+		with: [ spec
+				loads: 'TinyLoggerIntegration';
+				repository: 'github://jecisc/SystemInteraction:v1.x.x/src' ]
 ]
 
 { #category : #dependencies }
