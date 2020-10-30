@@ -1,21 +1,6 @@
 Extension { #name : #MooseGroup }
 
 { #category : #'*CPPS-Toolkit-Core' }
-MooseGroup >> detectIndex: aBlock [
-
-	^ self
-		  detectIndex: aBlock
-		  ifNone: [ NotFound signalFor: aBlock ]
-]
-
-{ #category : #'*CPPS-Toolkit-Core' }
-MooseGroup >> detectIndex: aBlock ifNone: exceptionBlock [
-
-	self doWithIndex: [ :each :index | (aBlock value: each) ifTrue: [ ^ index ] ].
-	^ exceptionBlock value
-]
-
-{ #category : #'*CPPS-Toolkit-Core' }
 MooseGroup >> indexOf: anElement ifAbsent: exceptionBlock [
 
 	"Answer the index of the first occurence of anElement within the  
